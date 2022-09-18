@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def new
+    @book=Book.new
   end
 
   def index
@@ -9,5 +10,11 @@ class BooksController < ApplicationController
   end
 
   def destroy
+  end
+  
+  private
+  
+  def book_params
+    params.require(:book).permit(:title, :body, :image)    
   end
 end
