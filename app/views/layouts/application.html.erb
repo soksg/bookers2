@@ -16,39 +16,48 @@
     <header>
       <% if user_signed_in? %>
       <li>
-        <i class="fa-light fa-house-chimney"></i>
-        <%#= link_to "Home" '/top' %>
+        <%= link_to  '/top', class: "text-light" do %>
+        <i class="fa-solid fa-house-chimney"> Home </i>
+        <% end %>
       </li>
       <li>
-        <i class="fa-light fa-users"></i>
-        <%#= link_to "Users" 'users/#{:id}' %>
+        <%#= link_to 'users/#{:id}', class: "text-light" do %>
+        <i class="fa-solid fa-users"> Users </i>
+        <%# end %>
       </li>
       <li>
-        <i class="fa-light fa-book-open"></i>
-        <%#= link_to "Books" '/books' %>
+        <%#= link_to '/books', class: "text-light" do %>
+        <i class="fa-solid fa-book-open"> Books </i>
+        <%# end %>
       </li>
       <li>
-        <i class="fa-light fa-right-from-bracket"></i>
-        <%= link_to "Log out", destroy_user_session_path %>
+        <%= link_to  destroy_user_session_path, class: "text-light" do %>
+        <i class="fa-solid fa-right-from-bracket"> Log out </i>
+        <% end %>
       </li>
+
       <% else %>
       <li>
-        <i class="fa-light fa-house-chimney"></i>
-        <%#= link_to "Home" '/top' %>
+        <%#= link_to  '/top', class: "text-light" do %>
+        <i class="fa-solid fa-house-chimney"> Home </i>
+        <%# end %>
       </li>
       <li>
-        <i class="fa-light fa-link"></i>
-        <%= link_to "About", 'home/about' %>
+        <%= link_to 'home/about', class: "text_light" do %>
+        <i class="fa-light fa-link"> About </i>
+        <% end %>
       </li>
       <li>
-        <i class="fa-light fa-user-plus"></i>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to new_user_registration_path, class: "text-light" do %>
+        <i class="fa-light fa-user-plus"> Sign up </i>
+        <% end %>
       </li>
       <li>
-        <i class="fa-light fa-right-to-bracket"></i>
-        <%= link_to "Log in", new_user_session_path %>
+        <%= link_to  new_user_session_path, class: "text-light" do %>
+        <i class="fa-light fa-right-to-bracket"> Log in </i>
+        <% end %>
       </li>
-      <% end %>
+    <% end %>
     </header>
     <main>
     <%= yield %>
