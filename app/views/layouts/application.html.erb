@@ -14,50 +14,65 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-      <li>
-        <%= link_to  '/top', class: "text-light" do %>
-        <i class="fa-solid fa-house-chimney"> Home </i>
-        <% end %>
-      </li>
-      <li>
-        <%#= link_to 'users/#{:id}', class: "text-light" do %>
-        <i class="fa-solid fa-users"> Users </i>
-        <%# end %>
-      </li>
-      <li>
-        <%#= link_to '/books', class: "text-light" do %>
-        <i class="fa-solid fa-book-open"> Books </i>
-        <%# end %>
-      </li>
-      <li>
-        <%= link_to  destroy_user_session_path, class: "text-light" do %>
-        <i class="fa-solid fa-right-from-bracket"> Log out </i>
-        <% end %>
-      </li>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">Bookers</a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to  '/', class: "text-light" do %>
+                  <i class="fa-solid fa-house-chimney"> Home </i>
+                  <% end %>
+                </li>
+                
+                <li>
+                  <%#= link_to 'users/#{:id}', class: "text-light" do %>
+                  <i class="fa-solid fa-users"> Users </i>
+                  <%# end %>
+                </li>
+                
+                <li>
+                  <%#= link_to '/books', class: "text-light" do %>
+                  <i class="fa-solid fa-book-open"> Books </i>
+                  <%# end %>
+                </li>
+                
+                <li>
+                  <%= link_to  destroy_user_session_path, class: "text-light" do %>
+                  <i class="fa-solid fa-right-from-bracket"> Log out </i>
+                  <% end %>
+                </li>
 
-      <% else %>
-      <li>
-        <%#= link_to  '/top', class: "text-light" do %>
-        <i class="fa-solid fa-house-chimney"> Home </i>
-        <%# end %>
-      </li>
-      <li>
-        <%= link_to 'home/about', class: "text_light" do %>
-        <i class="fa-light fa-link"> About </i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_registration_path, class: "text-light" do %>
-        <i class="fa-light fa-user-plus"> Sign up </i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to  new_user_session_path, class: "text-light" do %>
-        <i class="fa-light fa-right-to-bracket"> Log in </i>
-        <% end %>
-      </li>
-    <% end %>
+                <% else %>
+                <li>
+                  <%= link_to  '/', class: "text-light" do %>
+                  <i class="fa-solid fa-house-chimney"> Home </i>
+                  <% end %>
+                </li>
+                
+                <li>
+                  <%= link_to home_about_path, class: "text_light" do %>
+                  <i class="fa-light fa-link"> About </i>
+                  <% end %>
+                </li>
+                
+                <li>
+                  <%= link_to new_user_registration_path, class: "text-light" do %>
+                  <i class="fa-light fa-user-plus"> Sign up </i>
+                  <% end %>
+                </li>
+                
+                <li>
+                  <%= link_to  new_user_session_path, class: "text-light" do %>
+                  <i class="fa-light fa-right-to-bracket"> Log in </i>
+                <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
     <%= yield %>
