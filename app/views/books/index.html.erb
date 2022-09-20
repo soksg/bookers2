@@ -19,9 +19,11 @@
               </tbody>
             </table>
           <div class="row">
-            <a class="btn btn-outline-secondary btn-block" href="edit_user_path(:id)">
+            <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+            <!--<a class="" href="edit_user_path(:id)">-->
               <i class="fas fa-user-cog"></i>
-            </a>
+            <% end %>
+            <!--</a>-->
           </div>
           <h2>New book</h2>
           <%= form_with model: @book, url: books_path, method: :post do |f| %>
