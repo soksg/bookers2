@@ -44,12 +44,15 @@
                 <% @books.each do |book| %>
                   <tr>
                     <td><%= image_tag @user.get_profile_image(100,100) %>
-                    <br><%= @user.name %>></td>
-                    <td><%= book.title %></td>
+                    <br><%= link_to user_path(@user.id) %>
+                      <%= @user.name %>>
+                    </td>
+                    <td><%= link_to book_path(@book.id) %>
+                      <%= book.title %>
+                      </td>
                     <td><%= book.body %></td>
-                    <!--↓リンク先ページを作成-->
-                    <td><%= link_to "Edit",   class: "btn btn-success" %></td>
-                    <td><%= link_to "Destroy",  class: "btn btn-success"%></td>
+                    <td><%= link_to "Edit",  edit_book_path(@user_id), class: "btn btn-success" %></td>
+                    <td><%= link_to "Destroy", books_path,  class: "btn btn-success"%></td>
                   </tr>
                 <% end %>
                 </tbody>
