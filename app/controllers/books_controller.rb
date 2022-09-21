@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     if  @book.save
         redirect_to book_path
     else
-      render :new
+      render :index
     end
   end
 
@@ -20,6 +20,16 @@ class BooksController < ApplicationController
 
   def show
     @book=Book.find(params[:id])
+  end
+
+  def edit
+    @book=Book.find(params[:id])
+  end
+
+  def update
+    @book=Book.find(params[:id])
+    book.update(book_params)
+    
   end
 
   def destroy
