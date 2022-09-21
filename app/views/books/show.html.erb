@@ -1,4 +1,4 @@
-<p id="notice"></p>
+<p id="notice"><%= flash[:notice] %></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
         <div class="col-md-3">
@@ -51,7 +51,7 @@
                       </td>
                     <td><%= @book.body %></td>
                     <td><%= link_to "Edit",  edit_book_path(@book), class: "btn btn-success" %></td>
-                    <td><%= link_to "Destroy", books_path(@book), method: :delete, class: "btn btn-success"%></td>
+                    <td><%= link_to "Destroy", books_path(@book), method: :delete, class: "btn btn-danger"%></td>
                   </tr>
                 </tbody>
               </table>
