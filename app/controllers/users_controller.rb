@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!, except: [:top]
+
   def index
     @users=User.all
     @user=current_user
@@ -26,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    user=User.find(params[:id])
-    if user.update(user_params)
+    @user=User.find(params[:id])
+    if @user.update(user_params)
     redirect_to user_path(current_user.id), notice: 'You have updated user successfully.'
     else
       render :edit
