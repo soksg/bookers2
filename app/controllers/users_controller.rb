@@ -47,8 +47,10 @@ class UsersController < ApplicationController
 
    def correct_user
     @user = User.find(params[:id])
-    @book = @user.book
-    redirect_to(users_path) unless @user == current_user
+    @book = @user.books
+      unless @user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
 end
