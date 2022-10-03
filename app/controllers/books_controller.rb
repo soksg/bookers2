@@ -3,10 +3,6 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:top]
   before_action :correct_user, only: [:edit, :update]
 
-  # def new
-
-  # end
-
   def create
     @book=Book.new(book_params)
     @book.user_id=current_user.id
@@ -29,6 +25,7 @@ class BooksController < ApplicationController
     @book=Book.find(params[:id])
     @newbook=Book.new
     @user=User.find(@book.user_id)
+    @book_comment=BookComment.new
   end
 
   def edit
