@@ -62,7 +62,9 @@
                      </td>
                     <td><%= book.body %></td>
                     <% unless book.user==current_user %>
-                      <td><%= render 'books/favorite', book: book %></td>
+                      <td id="favorite_buttons_<%= book.id %>">
+                        <%= render 'favorites/favorite', book: book %>
+                      </td>
                     <% end %>
                     <td>コメント数：<%= book.book_comments.count %></td>
                   </tr>
