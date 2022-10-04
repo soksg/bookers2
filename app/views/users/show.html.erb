@@ -61,13 +61,16 @@
                       <% end %>
                      </td>
                     <td><%= book.body %></td>
-                    <td>ここにいいねボタン</td>
+
+
+                    <td><%= render 'books/favorite', book: @user.book  %></td>
+
+
                     <td>コメント数：<%= book.book_comments.count %></td>
                   </tr>
                 <% end %>
                 </tbody>
               </table>
-
           </div>
     </div>
   </div>

@@ -16,4 +16,10 @@ class Book < ApplicationRecord
     end
       image
   end
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+
+
 end
